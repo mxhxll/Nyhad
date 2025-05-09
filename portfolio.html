@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio – Nyhad</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .filters { text-align: center; margin-bottom: 2rem; }
+    .filters button {
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: #5D0E26;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .filters button:hover { background: #7C1D3F; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+    .gallery-item {
+      width: 250px;
+      display: none;
+    }
+    .gallery-item.active { display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="burger" id="burger">&#9776;</div>
+    <nav class="desktop">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="mobile" id="mobile-menu">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Mon Portfolio</h1>
+    <div class="filters">
+      <button onclick="filterGallery('all')">Tous</button>
+      <button onclick="filterGallery('editorial')">Éditorial</button>
+      <button onclick="filterGallery('defile')">Défilé</button>
+      <button onclick="filterGallery('commercial')">Commercial</button>
+    </div>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/250x350?text=Editorial+1" class="gallery-item editorial active" />
+      <img src="https://via.placeholder.com/250x350?text=Défilé+1" class="gallery-item defile active" />
+      <img src="https://via.placeholder.com/250x350?text=Commercial+1" class="gallery-item commercial active" />
+      <img src="https://via.placeholder.com/250x350?text=Editorial+2" class="gallery-item editorial active" />
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nyhad. Tous droits réservés.</p>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      items.forEach(item => {
+        item.classList.remove('active');
+        if (category === 'all' || item.classList.contains(category)) {
+          item.classList.add('active');
+        }
+      });
+    }
+  </script>
+</body>
+</html>

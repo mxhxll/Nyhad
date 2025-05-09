@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenue – Nyhad</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #F8F6F0;
+      font-family: 'Helvetica Neue', sans-serif;
+      text-align: center;
+    }
+    h1 {
+      color: #5D0E26;
+    }
+    .lang-select {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .lang-select a {
+      padding: 1rem 2rem;
+      background: #5D0E26;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .lang-select a:hover {
+      background: #7C1D3F;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bienvenue sur le site officiel de Nyhad</h1>
+  <p>Choisissez votre langue / Select your language / Kies uw taal / اختر لغتك</p>
+  
+<div class="lang-select">
+  <a href="fr/index.html" title="Français">
+    <img src="https://flagcdn.com/fr.svg" width="50" alt="Français">
+  </a>
+  <a href="en/index.html" title="English">
+    <img src="https://flagcdn.com/gb.svg" width="50" alt="English">
+  </a>
+  <a href="nl/index.html" title="Nederlands">
+    <img src="https://flagcdn.com/nl.svg" width="50" alt="Nederlands">
+  </a>
+  <a href="ar/index.html" title="العربية">
+    <img src="https://flagcdn.com/sa.svg" width="50" alt="العربية">
+  </a>
+</div>
+
+<style>
+  .lang-select a img {
+    transition: transform 0.3s ease;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .lang-select a img:hover {
+    transform: scale(1.1);
+  }
+  .lang-select {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  h1, p {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+  }
+  h1 { animation-delay: 0.3s; }
+  p { animation-delay: 0.6s; }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+</style>
+
+    <a href="fr/index.html">Français</a>
+    <a href="en/index.html">English</a>
+    <a href="nl/index.html">Nederlands</a>
+    <a href="ar/index.html">العربية</a>
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const lang = navigator.language || navigator.userLanguage;
+    if (lang.startsWith('fr')) window.location.href = 'fr/index.html';
+    else if (lang.startsWith('en')) window.location.href = 'en/index.html';
+    else if (lang.startsWith('nl')) window.location.href = 'nl/index.html';
+    else if (lang.startsWith('ar')) window.location.href = 'ar/index.html';
+  });
+</script>
+
+</body>
+</html>

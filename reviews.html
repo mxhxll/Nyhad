@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyhad – Modèle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="burger" id="burger">&#9776;</div>
+    <nav class="desktop">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="mobile" id="mobile-menu">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <header>
+    <button id="menu-toggle">☰</button>
+    <nav id="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Avis</h1><p>Avis de photographes, stylistes, agences.</p>
+  </main>
+  <footer>
+    <p>&copy; 2025 Nyhad. Tous droits réservés.</p>
+  </footer>
+  <script src="script.js"></script>
+<script>
+// Toggle mobile menu
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Page transition (fade)
+  const body = document.querySelector('body');
+  body.classList.add('fade');
+  window.setTimeout(() => {
+    body.classList.remove('fade');
+  }, 100);
+});
+</script>
+  <script src="script.js"></script>
+</body>
+</html>

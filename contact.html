@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyhad – Modèle</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="burger" id="burger">&#9776;</div>
+    <nav class="desktop">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <nav class="mobile" id="mobile-menu">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <header>
+    <button id="menu-toggle">☰</button>
+    <nav id="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="about.html">À propos</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="services.html">Services</a>
+      <a href="reviews.html">Avis</a>
+      <a href="disponibilites.html">Disponibilités</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Contact</h1><p>Formulaire de contact et liens sociaux.</p>
+  </main>
+
+<div id="loader" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background-color:rgba(255,255,255,0.8); z-index:9998; justify-content:center; align-items:center;">
+  <div style="border:6px solid #f3f3f3; border-top:6px solid #5D0E26; border-radius:50%; width:40px; height:40px; animation:spin 1s linear infinite;"></div>
+</div>
+
+<div id="thankYouModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background-color:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:#fff; padding:2rem; border-radius:12px; text-align:center; max-width:400px; box-shadow:0 8px 16px rgba(0,0,0,0.2);">
+    <h2>Merci 💌</h2>
+    <p>Votre message a bien été envoyé.<br>Je vous répondrai très vite.</p>
+    <button onclick="window.location.href='merci.html'" style="margin-top:1rem; padding:0.5rem 1.2rem; background:#5D0E26; color:white; border:none; border-radius:6px; cursor:pointer;">Continuer</button>
+  </div>
+</div>
+
+<style>
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+
+<div id="thankYouModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background-color:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:9999;">
+  <div style="background:#fff; padding:2rem; border-radius:12px; text-align:center; max-width:400px; box-shadow:0 8px 16px rgba(0,0,0,0.2);">
+    <h2>Merci 💌</h2>
+    <p>Votre message a bien été envoyé.<br>Je vous répondrai très vite.</p>
+    <button onclick="window.location.href='merci.html'" style="margin-top:1rem; padding:0.5rem 1.2rem; background:#5D0E26; color:white; border:none; border-radius:6px; cursor:pointer;">Continuer</button>
+  </div>
+</div>
+
+  <footer>
+    <p>&copy; 2025 Nyhad. Tous droits réservés.</p>
+  </footer>
+  <script src="script.js"></script>
+<script>
+// Toggle mobile menu
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
+
+  // Page transition (fade)
+  const body = document.querySelector('body');
+  body.classList.add('fade');
+  window.setTimeout(() => {
+    body.classList.remove('fade');
+  }, 100);
+});
+</script>
+  <script src="script.js"></script>
+
+<script>
+  const form = document.querySelector('form');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        alert('Merci pour votre message ! Je vous répondrai très bientôt.');
+        window.location.href = 'merci.html';
+      } else {
+        alert('Une erreur est survenue. Merci de réessayer.');
+      }
+    });
+  });
+</script>
+
+<script>
+  const form = document.querySelector('form');
+  const modal = document.getElementById('thankYouModal');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        modal.style.display = 'flex';
+      } else {
+        alert('Une erreur est survenue. Merci de réessayer.');
+      }
+    });
+  });
+</script>
+
+<script>
+  const form = document.querySelector('form');
+  const modal = document.getElementById('thankYouModal');
+  const loader = document.getElementById('loader');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    loader.style.display = 'flex';
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      loader.style.display = 'none';
+      if (response.ok) {
+        modal.style.display = 'flex';
+      } else {
+        alert('Une erreur est survenue. Merci de réessayer.');
+      }
+    });
+  });
+</script>
+</body>
+</html>
